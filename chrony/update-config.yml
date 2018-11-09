@@ -1,0 +1,12 @@
+- hosts: centos7
+  tasks:
+    - name: Centos 7 Hosts - Update chronyd config
+      copy:
+        src: /home/deb/ansible/chrony/chrony.conf
+        dest: /etc/chrony.conf
+        backup: yes
+    - name: Centos 7 Hosts - Update chronyd config - Enable and restart chronyd
+      service:
+        name: chronyd
+        enabled: yes
+        state: restarted
